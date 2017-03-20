@@ -44,22 +44,23 @@ export default class MobileApp extends Component {
     );
   }
 }
-const article5 = <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={{width: 400, height: 400}} />
+var myImg = <Image source={{uri: 'JSON.parse(http://ign-apis.herokuapp.com/articles?startIndex=30%5Cu0026count)["data"][0]["thumbnails"][0]["url"]'}} style={{width: 400, height: 400}} />
 //const article1 = require('./rip.jpg');
 //const article2 = require('./rip.jpg');
 //const article3 = require('./rip.jpg');
 //const article4 = require('./rip.jpg');
+var myImage = document.querySelector("img");
+//var theImageURL = parse("http://ign-apis.herokuapp.com/articles?startIndex=30\u0026count=5")["data"][0]["thumbnails"][0]["url"];
 
+//fetch(theImageURL)
+//.then(function(response) {
+ // return response.blob();
+//})
+//.then(function(myBlob) {
+ // var objectURL = URL.createObjectURL(myBlob);
+ // myImage.src = objectURL;
+//});
 var myImage = document.querySelector('img');
-
-fetch('http://ign-apis.herokuapp.com/articles?startIndex=30\u0026count=5')
-.then(function(response) {
-  return response.blob();
-})
-.then(function(myBlob) {
-  var objectURL = URL.createObjectURL(myBlob);
-  myImage.src = objectURL;
-});
 
 //const images = {article1, article2, article3, article4};
 
