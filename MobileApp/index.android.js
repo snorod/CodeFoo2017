@@ -13,7 +13,6 @@ export default class MobileApp extends Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.headerBar}>
           <View style={{flex: 1, margin: 10, justifyContent: 'flex-start', backgroundColor: '#000000'}}>
             <MenuButton name='MenuButton' />
@@ -26,30 +25,52 @@ export default class MobileApp extends Component {
           </View>
         </View>
 
+
+        <ListViewArticles name='articles' />
         <Text style={styles.welcome}>
           VIDEOS
         </Text>
+        <ListViewVideos name='videos' />
+        <ListViewArticles name='articles' />
+        <Text style={styles.welcome}>
+          VIDEOS
+        </Text>
+        <ListViewVideos name='videos' />
         <ListViewArticles name='articles' />
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
+          created by snorod
         </Text>
       </View>
     );
   }
 }
+const article5 = <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={{width: 400, height: 400}} />
+//const article1 = require('./rip.jpg');
+//const article2 = require('./rip.jpg');
+//const article3 = require('./rip.jpg');
+//const article4 = require('./rip.jpg');
+
+var myImage = document.querySelector('img');
+
+fetch('http://ign-apis.herokuapp.com/articles?startIndex=30\u0026count=5')
+.then(function(response) {
+  return response.blob();
+})
+.then(function(myBlob) {
+  var objectURL = URL.createObjectURL(myBlob);
+  myImage.src = objectURL;
+});
+
+//const images = {article1, article2, article3, article4};
 
 class ListViewArticles extends Component {
-  // Initialize the hardcoded data
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
     this.state = {
       dataSource: ds.cloneWithRows([
-        'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
+        'article1', 'article2'
       ])
     };
   }
@@ -57,9 +78,34 @@ class ListViewArticles extends Component {
     return (
       <View style={{flex: 1, paddingTop: 22}}>
         <ListView
-        var myAPIcall = fetch('http://ign-apis.herokuapp.com/articles?startIndex=30\u0026count=5');
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
+          renderRow={(rowData) => <Text style={styles.instructions}>{rowData}</Text>}
+
+        />
+        myImage
+      </View>
+    );
+  }
+}
+
+class ListViewVideos extends Component {
+  constructor(props) {
+    super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
+    this.state = {
+      dataSource: ds.cloneWithRows([
+        'video1', 'video2', 'video3', 'video4', 'video5'
+      ])
+    };
+  }
+  render() {
+    return (
+      <View style={{flex: 1, paddingTop: 22}}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text style={styles.instructions}>{rowData}</Text>}
+
         />
       </View>
     );
@@ -111,24 +157,14 @@ class SavedListButton extends Component {
   }
 }
 
-class SearchButton extends Component {
-  render() {
-    let pic = {
-      uri: 'http://mevicer.ge/gold-skins/default/images/search.png'
-    };
-    return (
-      <Image source={pic} style={{width: 15, height: 15}}/>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     //justifyContent: 'center',
     //alignItems: 'center',
     //backgroundColor: '#F5FCFF',
-    backgroundColor: '#F5FCFF',
+    ////renderRow={(rowData) => <Image style={styles.image} source={images[rowData]} />}
+    backgroundColor: '#000000',
   },
   headerBar: {
     flexDirection: 'row',
@@ -141,7 +177,7 @@ const styles = StyleSheet.create({
     //flexDirection: 'stretch',
   },
   welcome: {
-    fontSize: 30,
+    fontSize: 20,
     textAlign: 'center',
     fontWeight: 'bold',
     //fontFamily: 'Times New Roman',
