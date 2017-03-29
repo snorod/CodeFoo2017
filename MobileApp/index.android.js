@@ -44,25 +44,7 @@ export default class MobileApp extends Component {
     );
   }
 }
-var myImg = <Image source={{uri: 'JSON.parse(http://ign-apis.herokuapp.com/articles?startIndex=30%5Cu0026count)["data"][0]["thumbnails"][0]["url"]'}} style={{width: 400, height: 400}} />
-//const article1 = require('./rip.jpg');
-//const article2 = require('./rip.jpg');
-//const article3 = require('./rip.jpg');
-//const article4 = require('./rip.jpg');
-var myImage = document.querySelector("img");
-//var theImageURL = parse("http://ign-apis.herokuapp.com/articles?startIndex=30\u0026count=5")["data"][0]["thumbnails"][0]["url"];
 
-//fetch(theImageURL)
-//.then(function(response) {
- // return response.blob();
-//})
-//.then(function(myBlob) {
- // var objectURL = URL.createObjectURL(myBlob);
- // myImage.src = objectURL;
-//});
-var myImage = document.querySelector('img');
-
-//const images = {article1, article2, article3, article4};
 
 class ListViewArticles extends Component {
   constructor(props) {
@@ -83,7 +65,6 @@ class ListViewArticles extends Component {
           renderRow={(rowData) => <Text style={styles.instructions}>{rowData}</Text>}
 
         />
-        myImage
       </View>
     );
   }
@@ -161,10 +142,7 @@ class SavedListButton extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    //backgroundColor: '#F5FCFF',
-    ////renderRow={(rowData) => <Image style={styles.image} source={images[rowData]} />}
+
     backgroundColor: '#000000',
   },
   headerBar: {
@@ -173,21 +151,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#000000',
-    //height: 10,
-    //width: 10,
-    //flexDirection: 'stretch',
+
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     fontWeight: 'bold',
-    //fontFamily: 'Times New Roman',
+
     margin: 10,
     color: '#9E9E9E',
   },
   instructions: {
     textAlign: 'center',
-    //color: '#333333',
+
     color: '#BDBDBD',
     marginBottom: 5,
   },
