@@ -87,7 +87,7 @@ public class BoggleGame extends Application {
         hbox.setAlignment(Pos.CENTER);
         hbox.setSpacing(20.0);
         Button startButton = new Button("create board");
-        startButton.setStyle("-fx-background-color: #ff6666");
+        startButton.setStyle("-fx-background-color: #85c1e9");
         startButton.setFont(new Font(15));
 
         // "Create board" button brings up the next screen.
@@ -146,7 +146,7 @@ public class BoggleGame extends Application {
         boardButtons.setAlignment(Pos.CENTER);
         miniBoardButtons.setAlignment(Pos.CENTER);
         Button solutionsViewer = new Button("view solutions");
-        solutionsViewer.setStyle("-fx-background-color: #ff6666");
+        solutionsViewer.setStyle("-fx-background-color: #85c1e9");
         solutionsViewer.setFont(new Font(15));
 
         // "View solutions" button brings up the solutions page.
@@ -208,7 +208,7 @@ public class BoggleGame extends Application {
                 public void handle(MouseEvent event) {
                     for (Tile t: solution) {
                         Button b = buttonPath.get(t.getX() * sideLength + t.getY());
-                        b.setStyle("-fx-background-color: #ff6666");
+                        b.setStyle("-fx-background-color: #85c1e9");
                     }
                 }
             });
@@ -243,7 +243,7 @@ public class BoggleGame extends Application {
             hbox.setSpacing(45.0);
         }
         Button newBoard = new Button("home");
-        newBoard.setStyle("-fx-background-color: #ff6666");
+        newBoard.setStyle("-fx-background-color: #85c1e9");
         newBoard.setFont(new Font(15));
 
         // "Home" button starts up the whole process again.
